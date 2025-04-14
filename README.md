@@ -42,6 +42,13 @@ Biognosis instead uses the [Relation Ontology (RO)](https://bioregistry.io/ro)
 and other standard relations as a schema for simple triples that are ready for
 graph machine learning.
 
+| Source                       | Description                                                                                           |
+| ---------------------------- | ----------------------------------------------------------------------------------------------------- |
+| BioGRID                      | Protein-protein interactions                                                                          |
+| Alliance of Genome Resources | Disease Associations                                                                                  |
+| ExcapeDB                     | Small molecule regulators of proteins                                                                 |
+| Gene Ontology Annotations    | Associations to biogical processes, cellular components, and molecular functions in the Gene Ontology |
+
 ## 🚀 Installation
 
 The most recent release can be installed from
