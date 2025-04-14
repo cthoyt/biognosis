@@ -7,7 +7,7 @@ from bioregistry import NormalizedNamedReference, NormalizedReference
 from curies import Triple
 from curies import vocabulary as v
 
-from biognosis.sources.constants import get_module
+from biognosis.sources.constants import get_mod_to_uniprot, get_module
 
 KEY = "agr"
 MODULE = get_module(KEY)
@@ -35,18 +35,22 @@ def get_agr_triples() -> Iterable[Triple]:
             "comment": "#",
         },
     )
+    mod_to_uniprot = get_mod_to_uniprot()
     # TODO need to convert to UniProt or Entrez
     for subject_curie, association, disease_curie in df[
         ["DBObjectID", "AssociationType", "DOID"]
     ].values:
         subject = NormalizedReference.from_curie(subject_curie)
+        uniprot_id = mod_to_uniprot.get(subject)
+        if uniprot_id is None:
+            continue
         if pd.isna(disease_curie):
             continue
         pred = MAPPING[association]
         if not pred:
             continue
         disease = NormalizedReference.from_curie(disease_curie)
-        yield Triple(subject, pred, disease)
+        yield Triple(NormalizedReference(prefix="uniprot", identifier=uniprot_id), pred, disease)
 
 
 def _main() -> None:
