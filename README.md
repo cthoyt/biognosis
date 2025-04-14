@@ -35,6 +35,11 @@
 
 Assemble biological knowledge.
 
+This is a more modern take on [Bio2BEL](https://github.com/bio2bel), which assembled biological knowledge
+using the [Biological Expression Language](https://biological-expression-language.github.io). Biognosis
+instead uses the [Relation Ontology (RO)](https://bioregistry.io/ro) and other standard relations as
+a schema for simple triples that are ready for graph machine learning.
+
 ## 🚀 Installation
 
 The most recent release can be installed from
