@@ -54,6 +54,10 @@ dependencies = [
     "click",
     "more_click",
     "typing-extensions",
+    "pystow",
+    "bioversions",
+    "curies>=0.10.11",
+    "bioregistry",
 ]
 
 # see https://peps.python.org/pep-0735/ and https://docs.astral.sh/uv/concepts/dependencies/#dependency-groups
